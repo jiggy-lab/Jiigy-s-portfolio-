@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feranmi | jiggy-lab, Front-end Developer in Lagos</title>
+
+    <meta name="description" content="Feranmi (jiggy-lab) is a self-taught front-end developer in Lagos, Nigeria, building fast, clean websites for small businesses with HTML, CSS and JavaScript.">
+
+    <meta name="theme-color" content="#121314">
+
+    <link rel="canonical" href="https://jiggy-lab.github.io/Feranmi-s-portfolio-/">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238AF200'/%3E%3Ctext x='50' y='70' font-size='64' font-weight='900' text-anchor='middle' fill='%23121314' font-family='Arial,sans-serif'%3Ej.%3C/text%3E%3C/svg%3E">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Feranmi | jiggy-lab, Front-end Developer in Lagos">
+    <meta property="og:description" content="Small ideas. Sharp execution. Fast, clean websites for small businesses.">
+    <meta property="og:url" content="https://jiggy-lab.github.io/Feranmi-s-portfolio-/">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Feranmi | jiggy-lab, Front-end Developer in Lagos">
+    <meta name="twitter:description" content="Small ideas. Sharp execution. Fast, clean websites for small businesses.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: {
+                            DEFAULT: '#121314',
+                            surface: '#1A1C1E',
+                            card: '#202326',
+                            border: '#2E3238'
+                        },
+
+                        vividGreen: {
+                            DEFAULT: '#8AF200',
+                            hover: '#78D100',
+                            glow: 'rgba(138, 242, 0, 0.25)'
+                        },
+
+                        pureWhite: '#FFFFFF',
+                        softWhite: '#F8F9FA',
+
+                        offWhite: {
+                            DEFAULT: '#F4F3EF',
+                            muted: '#9A9B9E',
+                            subtle: '#6B6A66'
+                        },
+
+                        orb: {
+                            purple: '#8B5CF6',
+                            lightGreen: '#8AF200',
+                            veryLightGreen: '#B8FF52'
+                        }
+                    },
+
+                    fontFamily: {
+                        serif: ['"Instrument Serif"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.469.0"></script>
+
+    <style>
+        body {
+            background-color: #121314;
+            color: #F4F3EF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        .editorial-serif {
+            font-family: 'Instrument Serif', serif;
+        }
+
+        /* Exact stroke outline text effect */
+        .text-stroke-lime {
+            -webkit-text-stroke: 2px #8AF200;
+            color: transparent;
+        }
+
+        @media (max-width: 640px) {
+            .text-stroke-lime {
+                -webkit-text-stroke: 1.5px #8AF200;
+            }
+        }
+
+        /* Technical Grid Overlay Background */
+        .bg-grid-pattern {
+            background-size: 3rem 3rem;
+            background-image:
+                linear-gradient(
+                    to right,
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px
+                );
+        }
+
+        /* Orbital graphic rotation animations */
+        @keyframes spinSlow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinReverse {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .animate-orbit-1 {
+            animation: spinSlow 22s linear infinite;
+            transform-origin: center;
+        }
+
+        .animate-orbit-2 {
+            animation: spinReverse 28s linear infinite;
+            transform-origin: center;
+        }
+
+        /* Scroll Reveal Animation Styles */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(24px);
+
+            transition:
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+            will-change: opacity, transform;
+        }
+
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating effect */
+        @keyframes floatSlow {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .animate-float {
+            animation: floatSlow 5s ease-in-out infinite;
+        }
+
+        /* Respect reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-element {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .animate-orbit-1,
+            .animate-orbit-2,
+            .animate-float {
+                animation: none;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #121314;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2E3238;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8AF200;
+        }
+    </style>
+
+    <!-- If JavaScript is off, never leave content hidden -->
+    <noscript>
+        <style>
+            .reveal-element {
+                opacity: 1;
+                transform: none;
+            }
+        </style>
+    </noscript>
+</head>
+
+
+<body class="antialiased selection:bg-vividGreen selection:text-charcoal min-h-screen flex flex-col justify-between relative">
+
+
+    <!-- =========================================================
+         NAVIGATION HEADER
+    ========================================================== -->
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-charcoal/90 backdrop-blur-md border-b border-charcoal-border/80">
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between">
+
+            <!-- Brand Logo -->
+            <a
+                href="#"
+                class="group flex items-center gap-2.5 sm:gap-3 text-pureWhite font-bold tracking-tight"
+            >
+
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-vividGreen flex items-center justify-center text-charcoal font-black text-base sm:text-lg shadow-[0_0_15px_rgba(138,242,0,0.4)] group-hover:scale-105 transition-transform">
+                    j.
+                </div>
+
+                <div class="flex items-center gap-1 font-bold tracking-wider text-sm sm:text-base text-pureWhite font-mono">
+                    <span>JIGGY</span>
+                    <span class="text-vividGreen">—</span>
+                    <span>LAB</span>
+                </div>
+
+            </a>
+
+
+            <!-- Lagos Clock & Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm text-offWhite">
+
+                <div class="flex items-center gap-2 font-mono text-xs bg-pureWhite/5 border border-pureWhite/10 px-3.5 py-1.5 rounded-full">
+
+                    <span class="w-1.5 h-1.5 rounded-full bg-vividGreen animate-pulse"></span>
+
+                    <span class="text-offWhite-muted">
+                        LAGOS:
+                    </span>
+
+                    <span
+                        id="lagos-clock"
+                        class="text-pureWhite font-semibold"
+                    >
+                        00:00:00
+                    </span>
+
+                </div>
+
+                <a
+                    href="#work"
+                    class="hover:text-vividGreen transition-colors"
+                >
+                    Work
+                </a>
+
+                <a
+                    href="#about"
+                    class="hover:text-vividGreen transition-colors"
+                >
+                    About
+                </a>
+
+                <a
+                    href="#contact"
+                    class="hover:text-vividGreen transition-colors"
+                >
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- GitHub + WhatsApp + Mobile Menu -->
+            <div class="flex items-center gap-2 sm:gap-3">
+
+                <a
+                    href="https://github.com/jiggy-lab"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hidden sm:inline-flex items-center gap-2 text-xs font-mono font-medium text-pureWhite bg-pureWhite/5 hover:bg-pureWhite/10 border border-pureWhite/20 hover:border-vividGreen px-3.5 py-2 rounded-full transition-all"
+                >
+                    <span>GitHub</span>
+
+                    <i
+                        data-lucide="arrow-up-right"
+                        class="w-3.5 h-3.5 text-vividGreen"
+                    ></i>
+                </a>
+
+
+                <a
+                    href="https://wa.me/2349019762557?text=Hi%20Feranmi%2C%20I%27d%20like%20a%20website%20for%20my%20business"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-bold text-charcoal bg-vividGreen hover:bg-vividGreen-hover px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(138,242,0,0.4)]"
+                >
+
+                    <i
+                        data-lucide="message-circle"
+                        class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-charcoal"
+                    ></i>
+
+                    <span>Contact</span>
+
+                </a>
+
+
+                <!-- Mobile menu button -->
+                <button
+                    id="menu-btn"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                    class="md:hidden w-9 h-9 rounded-full border border-pureWhite/20 bg-pureWhite/5 flex items-center justify-center text-pureWhite hover:border-vividGreen transition-colors"
+                >
+
+                    <span id="icon-open">
+                        <i
+                            data-lucide="menu"
+                            class="w-4 h-4"
+                        ></i>
+                    </span>
+
+                    <span
+                        id="icon-close"
+                        class="hidden"
+                    >
+                        <i
+                            data-lucide="x"
+                            class="w-4 h-4"
+                        ></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Mobile menu panel -->
+        <div
+            id="mobile-menu"
+            class="hidden md:hidden border-t border-charcoal-border/80 bg-charcoal/95"
+        >
+
+            <nav class="max-w-6xl mx-auto px-4 py-3 flex flex-col text-sm text-offWhite">
+
+                <a
+                    href="#work"
+                    class="mobile-link py-3 border-b border-charcoal-border/60 hover:text-vividGreen transition-colors"
+                >
+                    Work
+                </a>
+
+                <a
+                    href="#about"
+                    class="mobile-link py-3 border-b border-charcoal-border/60 hover:text-vividGreen transition-colors"
+                >
+                    About
+                </a>
+
+                <a
+                    href="#contact"
+                    class="mobile-link py-3 hover:text-vividGreen transition-colors"
+                >
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main class="pt-20 sm:pt-24 pb-12 sm:pb-16">
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-12 sm:pt-8 sm:pb-16 md:py-20 bg-grid-pattern rounded-2xl sm:rounded-3xl my-2 sm:my-4 overflow-hidden border border-charcoal-border">
+
+            <div class="absolute right-10 top-1/2 -translate-y-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-vividGreen/10 rounded-full blur-3xl pointer-events-none"></div>
+
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+
+
+                <!-- Hero Headline Column -->
+                <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+
+                    <a
+                        href="https://github.com/jiggy-lab/Feranmi-s-portfolio-"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="reveal-element inline-flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-pureWhite/5 border border-pureWhite/10 hover:border-vividGreen/60 transition-colors text-pureWhite text-xs font-mono font-medium tracking-wide"
+                    >
+
+                        <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-vividGreen shadow-[0_0_10px_#8AF200] animate-pulse"></span>
+
+                        <span class="uppercase tracking-widest text-[10px] sm:text-[11px] text-vividGreen">
+                            ● OPEN SOURCE, OPEN MINDS
+                        </span>
+
+                    </a>
+
+
+                    <!-- Bold Editorial Headline -->
+                    <div class="reveal-element space-y-1">
+
+                        <h1 class="text-4xl sm:text-7xl lg:text-8xl font-extrabold text-pureWhite tracking-tight leading-[0.95] break-words">
+                            Small ideas.
+                        </h1>
+
+                        <h1 class="text-4xl sm:text-7xl lg:text-8xl font-normal editorial-serif italic text-stroke-lime tracking-tight leading-[0.95] break-words">
+                            Sharp
+                        </h1>
+
+                        <h1 class="text-4xl sm:text-7xl lg:text-8xl font-extrabold text-pureWhite tracking-tight leading-[0.95] flex items-baseline gap-1 break-words">
+
+                            <span>
+                                execution
+                            </span>
+
+                            <span class="text-vividGreen text-4xl sm:text-7xl lg:text-8xl inline-block leading-none">
+                                .
+                            </span>
+
+                        </h1>
+
+                    </div>
+
+
+                    <p class="reveal-element text-base sm:text-lg md:text-xl text-offWhite-muted max-w-xl font-light leading-relaxed">
+
+                        I'm
+                        <strong class="text-pureWhite font-bold">
+                            Feranmi
+                        </strong>,
+
+                        building thoughtful websites for small businesses under
+
+                        <strong class="text-pureWhite font-bold">
+                            jiggy-lab
+                        </strong>.
+
+                        Practical code, made with care.
+
+                    </p>
+
+
+                    <div class="reveal-element pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5">
+
+                        <a
+                            href="#work"
+                            class="px-7 py-3.5 bg-vividGreen text-charcoal font-bold rounded-xl hover:bg-vividGreen-hover transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:-translate-y-0.5 group text-center"
+                        >
+
+                            <span>
+                                View Work
+                            </span>
+
+                            <i
+                                data-lucide="arrow-down-right"
+                                class="w-4 h-4 text-charcoal group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"
+                            ></i>
+
+                        </a>
+
+
+                        <a
+                            href="#work"
+                            class="w-12 h-12 rounded-full border border-pureWhite/20 bg-charcoal-surface hidden sm:flex items-center justify-center text-vividGreen hover:border-vividGreen hover:scale-110 transition-all shadow-lg"
+                            title="Scroll down"
+                        >
+
+                            <i
+                                data-lucide="arrow-down"
+                                class="w-5 h-5"
+                            ></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Orbital Sphere Graphic -->
+                <div class="lg:col-span-5 flex justify-center items-center pt-4 lg:pt-0">
+
+                    <div class="reveal-element relative w-full max-w-[310px] sm:max-w-[380px] lg:max-w-[420px] aspect-square flex items-center justify-center">
+
+                        <svg
+                            class="absolute inset-0 w-full h-full pointer-events-none"
+                            viewBox="0 0 300 300"
+                            fill="none"
+                        >
+
+                            <ellipse
+                                cx="150"
+                                cy="150"
+                                rx="138"
+                                ry="54"
+                                stroke="#8AF200"
+                                stroke-width="1.2"
+                                stroke-opacity="0.8"
+                                transform="rotate(-25 150 150)"
+                                class="animate-orbit-1"
+                            />
+
+                            <ellipse
+                                cx="150"
+                                cy="150"
+                                rx="138"
+                                ry="64"
+                                stroke="#8B5CF6"
+                                stroke-width="1"
+                                stroke-opacity="0.65"
+                                transform="rotate(35 150 150)"
+                                class="animate-orbit-2"
+                            />
+
+                        </svg>
+
+
+                        <div class="relative w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-[#8AF200] via-[#B8FF52] to-[#E3FF99] flex items-center justify-center shadow-[0_0_60px_rgba(138,242,0,0.45)] animate-float">
+
+                            <div class="text-charcoal font-black text-6xl sm:text-7xl tracking-tighter select-none flex items-baseline">
+
+                                <span>
+                                    j
+                                </span>
+
+                                <span class="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-pureWhite inline-block ml-0.5 shadow-md"></span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="absolute top-2 right-1 sm:top-4 sm:right-2 font-mono text-[9px] sm:text-[10px] text-vividGreen flex items-center gap-1 bg-charcoal/80 px-2 sm:px-2.5 py-1 rounded-full border border-vividGreen/30">
+
+                            <span>
+                                CREATIVE CODE
+                            </span>
+
+                            <i
+                                data-lucide="arrow-up-right"
+                                class="w-3 h-3"
+                            ></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FEATURED PROJECTS
+        ====================================================== -->
+
+        <section
+            id="work"
+            class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 border-t border-charcoal-border space-y-16"
+        >
+
+
+            <!-- Section Header -->
+            <div class="reveal-element space-y-3">
+
+                <span class="text-vividGreen font-mono text-xs uppercase tracking-widest block">
+                    01 / WORK
+                </span>
+
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-normal text-pureWhite tracking-tight">
+
+                    Featured
+
+                    <span class="editorial-serif italic text-vividGreen">
+                        Projects.
+                    </span>
+
+                </h2>
+
+                <p class="text-offWhite-muted text-sm sm:text-base md:text-lg max-w-xl font-light leading-relaxed">
+
+                    Selected work built with clean code, fast execution, and modern responsive design.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROJECT 01
+            ================================================== -->
+
+            <div class="space-y-4">
+
+                <div class="reveal-element flex items-center justify-between font-mono text-xs text-vividGreen tracking-wider uppercase">
+
+                    <span>
+                        PROJECT 01
+                    </span>
+
+                    <span>
+                        BEAUTY / PORTFOLIO
+                    </span>
+
+                </div>
+
+
+                <div class="reveal-element bg-charcoal-surface border border-charcoal-border rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 max-w-3xl hover:border-vividGreen/40 transition-all duration-300 group">
+
+
+                    <!-- Project 01 Preview -->
+                    <a
+                        href="https://jiggy-lab.github.io/radiant.by.dami/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block relative rounded-xl sm:rounded-2xl overflow-hidden border border-charcoal-border/80 bg-[#F7F2EC] text-[#221F1E] transition-transform duration-500 group-hover:scale-[1.01] shadow-2xl"
+                    >
+
+                        <div class="flex items-center justify-between px-3.5 sm:px-5 py-3 sm:py-3.5 bg-[#F0EADF] border-b border-[#E2D9CB]">
+
+                            <div class="flex items-center gap-2">
+
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#E57373]"></span>
+
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#FFB74D]"></span>
+
+                            </div>
+
+                            <span class="font-serif italic text-xs sm:text-sm text-[#5A5047] font-medium tracking-wide">
+                                radiant.by.dami
+                            </span>
+
+                        </div>
+
+
+                        <div class="p-6 sm:p-8 md:p-14 text-left relative flex flex-col justify-between min-h-[220px] sm:min-h-[260px] md:min-h-[300px]">
+
+                            <div class="space-y-2 sm:space-y-3 max-w-md">
+
+                                <span class="text-[10px] sm:text-[11px] font-mono font-bold tracking-widest text-[#7D7268] uppercase block">
+                                    MAKEUP ARTISTRY · LAGOS
+                                </span>
+
+                                <h3 class="text-3xl sm:text-5xl md:text-6xl font-serif leading-[1.05] text-[#221F1E]">
+
+                                    Radiance,
+                                    <br>
+
+                                    <span class="italic text-[#9E4242] font-normal">
+                                        done right.
+                                    </span>
+
+                                </h3>
+
+                            </div>
+
+
+                            <div class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-10 md:bottom-10 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[#221F1E] text-pureWhite flex items-center justify-center shadow-xl group-hover:bg-vividGreen group-hover:text-charcoal transition-colors duration-300">
+
+                                <i
+                                    data-lucide="arrow-up-right"
+                                    class="w-5 h-5 sm:w-6 sm:h-6"
+                                ></i>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- Project 01 Information -->
+                    <div class="mt-5 sm:mt-6 space-y-4">
+
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+
+                            <div>
+
+                                <h4 class="text-xl sm:text-2xl font-bold text-pureWhite tracking-tight">
+                                    radiant.by.dami
+                                </h4>
+
+                                <p class="text-xs sm:text-sm text-offWhite-muted font-light mt-1">
+                                    Design · Front-end development · Responsive experience
+                                </p>
+
+                            </div>
+
+
+                            <div class="inline-flex items-center gap-2 bg-charcoal-card border border-charcoal-border px-3.5 py-2 rounded-xl text-xs text-softWhite italic self-start sm:self-auto">
+
+                                <span class="text-vividGreen font-bold">
+                                    “
+                                </span>
+
+                                <span>
+                                    It looks so clean and beautiful... you even gave them prices!
+                                </span>
+
+                                <span class="text-vividGreen font-bold font-mono text-[10px] not-italic">
+                                    — Dami
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pt-2">
+
+                            <a
+                                href="https://jiggy-lab.github.io/radiant.by.dami/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-vividGreen hover:text-vividGreen-hover transition-colors group/link"
+                            >
+
+                                <span>
+                                    VISIT LIVE SITE
+                                </span>
+
+                                <i
+                                    data-lucide="arrow-up-right"
+                                    class="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
+                                ></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROJECT 02 — SHORT N' SWEET
+            ================================================== -->
+
+            <div class="space-y-4 pt-4 border-t border-charcoal-border/60">
+
+
+                <!-- Project Label -->
+                <div class="reveal-element flex items-center justify-between font-mono text-xs text-vividGreen tracking-wider uppercase">
+
+                    <span>
+                        PROJECT 02
+                    </span>
+
+                    <span>
+                        BAKERY / E-COMMERCE
+                    </span>
+
+                </div>
+
+
+                <!-- Project Card -->
+                <div class="reveal-element bg-charcoal-surface border border-charcoal-border rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 max-w-3xl hover:border-vividGreen/40 transition-all duration-300 group">
+
+
+                    <!-- =================================================
+                         ACTUAL SHORT N' SWEET SCREENSHOT
+                    ================================================== -->
+
+                    <a
+                        href="https://sunny-salmiakki-c87049.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="block relative rounded-xl sm:rounded-2xl overflow-hidden border border-charcoal-border/80 bg-[#FAF7F2] transition-transform duration-500 group-hover:scale-[1.01] shadow-2xl"
+                    >
+
+
+                        <!-- Browser Bar -->
+                        <div class="relative z-10 flex items-center justify-between px-3.5 sm:px-5 py-3 sm:py-3.5 bg-[#F2ECE1] border-b border-[#E4DACB]">
+
+                            <div class="flex items-center gap-2">
+
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#E57373]"></span>
+
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#FFB74D]"></span>
+
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#81C784]"></span>
+
+                            </div>
+
+
+                            <span class="font-mono text-[10px] sm:text-xs text-[#7A6E63] font-medium tracking-wide truncate ml-4">
+
+                                sunny-salmiakki-c87049.netlify.app
+
+                            </span>
+
+                        </div>
+
+
+                        <!--
+                            3:2 Preview
+
+                            The screenshot is intentionally anchored
+                            to the top so the visitor sees the actual
+                            website header, navigation and hero first.
+                        -->
+                        <div class="relative aspect-[3/2] overflow-hidden bg-[#F7F4EC]">
+
+                            <img
+                                src="images/short-n-sweet-preview.jpg"
+                                alt="Short n' Sweet Bakery website preview"
+                                class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
+                            >
+
+
+                            <!-- Very subtle hover treatment -->
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none"></div>
+
+
+                            <!-- Visit Arrow -->
+                            <div class="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#2C2520] text-white flex items-center justify-center shadow-xl group-hover:bg-vividGreen group-hover:text-charcoal group-hover:scale-105 transition-all duration-300">
+
+                                <i
+                                    data-lucide="arrow-up-right"
+                                    class="w-5 h-5 sm:w-6 sm:h-6"
+                                ></i>
+
+                            </div>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- =================================================
+                         PROJECT 02 INFORMATION
+                    ================================================== -->
+
+                    <div class="mt-5 sm:mt-6 space-y-4">
+
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+
+                            <div>
+
+                                <h4 class="text-xl sm:text-2xl font-bold text-pureWhite tracking-tight">
+                                    Short n' Sweet Bakery
+                                </h4>
+
+                                <p class="text-xs sm:text-sm text-offWhite-muted font-light mt-1">
+                                    Design · Front-end development · E-commerce experience
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="pt-2">
+
+                            <a
+                                href="https://sunny-salmiakki-c87049.netlify.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-vividGreen hover:text-vividGreen-hover transition-colors group/link"
+                            >
+
+                                <span>
+                                    VISIT LIVE SITE
+                                </span>
+
+                                <i
+                                    data-lucide="arrow-up-right"
+                                    class="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
+                                ></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             ABOUT
+        ========================================================== -->
+
+        <section
+            id="about"
+            class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 border-t border-charcoal-border"
+        >
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+
+                <div class="reveal-element lg:col-span-4 space-y-3 sm:space-y-4">
+
+                    <span class="text-vividGreen font-mono text-xs uppercase tracking-widest block">
+                        02 / ABOUT
+                    </span>
+
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-normal text-pureWhite leading-tight">
+
+                        Self-taught,
+                        <br class="hidden lg:inline">
+
+                        <span class="editorial-serif italic text-vividGreen">
+                            practical & deliberate.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <div class="lg:col-span-8 space-y-6 sm:space-y-8 text-pureWhite">
+
+
+                    <p class="reveal-element text-base sm:text-lg md:text-xl font-light text-softWhite leading-relaxed">
+
+                        I'm Feranmi, a self-taught front-end developer based in Lagos, Nigeria. I work under the name jiggy-lab, designing and coding fast, clean websites for small businesses using HTML, CSS, and JavaScript.
+
+                    </p>
+
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-2">
+
+
+                        <!-- FlyRank -->
+                        <div class="reveal-element p-5 sm:p-7 rounded-2xl bg-pureWhite text-charcoal shadow-xl space-y-3">
+
+                            <div class="w-10 h-10 rounded-xl bg-charcoal text-vividGreen flex items-center justify-center font-bold">
+
+                                <i
+                                    data-lucide="cpu"
+                                    class="w-5 h-5"
+                                ></i>
+
+                            </div>
+
+                            <h3 class="text-lg sm:text-xl font-bold text-charcoal">
+                                FlyRank Internship
+                            </h3>
+
+                            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal">
+
+                                Completed an internship at
+
+                                <strong class="text-charcoal font-bold">
+                                    FlyRank
+                                </strong>
+
+                                on their
+
+                                <strong class="text-charcoal font-bold">
+                                    Backend AI Engineering track
+                                </strong>.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- Core Tech Stack -->
+                        <div class="reveal-element p-5 sm:p-7 rounded-2xl bg-charcoal-surface border border-pureWhite/15 space-y-3">
+
+                            <div class="w-10 h-10 rounded-xl bg-vividGreen/20 text-vividGreen flex items-center justify-center font-bold">
+
+                                <i
+                                    data-lucide="code-2"
+                                    class="w-5 h-5"
+                                ></i>
+
+                            </div>
+
+                            <h3 class="text-lg sm:text-xl font-bold text-pureWhite">
+                                Core Tech Stack
+                            </h3>
+
+                            <p class="text-xs sm:text-sm text-pureWhite/80 leading-relaxed font-light">
+
+                                Pure HTML, CSS, and JavaScript. Fast-loading, highly responsive, and straightforward to maintain.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             CONTACT
+        ========================================================== -->
+
+        <section
+            id="contact"
+            class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 border-t border-charcoal-border"
+        >
+
+            <div class="reveal-element space-y-6 sm:space-y-8 max-w-2xl">
+
+
+                <div class="font-mono text-xs uppercase tracking-widest text-vividGreen font-semibold">
+                    03 / CONTACT
+                </div>
+
+
+                <div class="space-y-1">
+
+                    <h2 class="text-4xl sm:text-6xl lg:text-7xl font-serif text-pureWhite leading-[1.05] tracking-tight break-words">
+                        Have a small site?
+                    </h2>
+
+                    <h2 class="text-4xl sm:text-6xl lg:text-7xl font-serif italic text-stroke-lime leading-[1.05] break-words">
+                        Let's make it sharp.
+                    </h2>
+
+                </div>
+
+
+                <div class="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+
+
+                    <!-- WhatsApp -->
+                    <a
+                        href="https://wa.me/2349019762557?text=Hi%20Feranmi%2C%20I%27d%20like%20a%20website%20for%20my%20business"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:py-4 bg-vividGreen hover:bg-vividGreen-hover text-charcoal font-bold text-xs uppercase font-mono tracking-wider rounded-lg transition-all shadow-[0_0_20px_rgba(138,242,0,0.2)] hover:scale-105 text-center"
+                    >
+
+                        <i
+                            data-lucide="message-circle"
+                            class="w-4 h-4 fill-charcoal text-charcoal"
+                        ></i>
+
+                        <span>
+                            START ON WHATSAPP
+                        </span>
+
+                    </a>
+
+
+                    <!-- GitHub -->
+                    <a
+                        href="https://github.com/jiggy-lab"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:py-4 bg-transparent border border-charcoal-border hover:border-vividGreen text-pureWhite font-bold text-xs uppercase font-mono tracking-wider rounded-lg transition-all hover:bg-pureWhite/5 text-center"
+                    >
+
+                        <i
+                            data-lucide="github"
+                            class="w-4 h-4"
+                        ></i>
+
+                        <span>
+                            VIEW GITHUB
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="border-t border-charcoal-border bg-charcoal py-8 sm:py-10">
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 font-mono text-xs text-offWhite-muted space-y-2 uppercase tracking-widest">
+
+            <div>
+                © 2026 JIGGY–LAB
+            </div>
+
+            <div>
+                LAGOS, NIGERIA
+            </div>
+
+            <div>
+
+                <a
+                    href="https://github.com/jiggy-lab"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-vividGreen transition-colors inline-flex items-center gap-1"
+                >
+
+                    <span>
+                        BUILT BY FERANMI
+                    </span>
+
+                    <i
+                        data-lucide="arrow-up-right"
+                        class="w-3 h-3 text-vividGreen"
+                    ></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        // ---------------------------------------------------------
+        // Initialize Lucide Icons
+        // ---------------------------------------------------------
+
+        lucide.createIcons();
+
+
+
+        // ---------------------------------------------------------
+        // Mobile menu toggle
+        // ---------------------------------------------------------
+
+        (function () {
+
+            const btn = document.getElementById('menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
+
+            if (!btn || !menu) return;
+
+
+            function setMenu(open) {
+
+                menu.classList.toggle('hidden', !open);
+
+                iconOpen.classList.toggle('hidden', open);
+                iconClose.classList.toggle('hidden', !open);
+
+                btn.setAttribute(
+                    'aria-expanded',
+                    String(open)
+                );
+
+                btn.setAttribute(
+                    'aria-label',
+                    open ? 'Close menu' : 'Open menu'
+                );
+
+            }
+
+
+            btn.addEventListener(
+                'click',
+                () => setMenu(
+                    menu.classList.contains('hidden')
+                )
+            );
+
+
+            document
+                .querySelectorAll('.mobile-link')
+                .forEach(a => {
+
+                    a.addEventListener(
+                        'click',
+                        () => setMenu(false)
+                    );
+
+                });
+
+
+            window.addEventListener(
+                'resize',
+                () => {
+
+                    if (window.innerWidth >= 768) {
+                        setMenu(false);
+                    }
+
+                }
+            );
+
+        })();
+
+
+
+        // ---------------------------------------------------------
+        // Update Lagos Clock
+        // ---------------------------------------------------------
+
+        function updateLagosClock() {
+
+            const options = {
+
+                timeZone: 'Africa/Lagos',
+
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+
+                hour12: false
+
+            };
+
+
+            const formatter =
+                new Intl.DateTimeFormat([], options);
+
+
+            const lagosTime =
+                formatter.format(new Date());
+
+
+            const clockEl =
+                document.getElementById('lagos-clock');
+
+
+            if (clockEl) {
+
+                clockEl.textContent =
+                    lagosTime + ' WAT';
+
+            }
+
+        }
+
+
+        setInterval(
+            updateLagosClock,
+            1000
+        );
+
+
+        updateLagosClock();
+
+
+
+        // ---------------------------------------------------------
+        // Scroll Reveal Animations
+        // ---------------------------------------------------------
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            () => {
+
+                const observerOptions = {
+
+                    root: null,
+
+                    rootMargin:
+                        '0px 0px -40px 0px',
+
+                    threshold: 0.1
+
+                };
+
+
+                const observer =
+                    new IntersectionObserver(
+                        (entries, observer) => {
+
+                            entries.forEach(entry => {
+
+                                if (entry.isIntersecting) {
+
+                                    entry.target.classList.add(
+                                        'is-visible'
+                                    );
+
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+
+                                }
+
+                            });
+
+                        },
+                        observerOptions
+                    );
+
+
+                const revealElements =
+                    document.querySelectorAll(
+                        '.reveal-element'
+                    );
+
+
+                revealElements.forEach(
+                    el => observer.observe(el)
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
